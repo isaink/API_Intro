@@ -1,367 +1,151 @@
 
-  let APIResponse = { //dog data
+document.addEventListener("DOMContentLoaded", () => {
+  let APIResponse = {
     "status": "success",
     "message": {
-      "affenpinscher": [
+      "affenpinscher": [],
+      "african": [],
+      "airedale": [],
+      "akita": [],
+      "appenzeller": [],
+      "basenji": [],
+      "beagle": [],
+      "bluetick": [],
+      "borzoi": [],
+      "bouvier": [],
+      "boxer": [],
+      "brabancon": [],
+      "briard": [],
+      "bulldog": ["boston", "french"],
+      "bullterrier": ["staffordshire"],
+      "cairn": [],
+      "cattledog": ["australian"],
+      "chihuahua": [],
+      "chow": [],
+      "clumber": [],
+      "cockapoo": [],
+      "collie": ["border"],
+      "coonhound": [],
+      "corgi": ["cardigan"],
+      "cotondetulear": [],
+      "dachshund": [],
+      "dalmatian": [],
+      "dane": ["great"],
+      "deerhound": ["scottish"],
+      "dhole": [],
+      "dingo": [],
+      "doberman": [],
+      "elkhound": ["norwegian"],
+      "entlebucher": [],
+      "eskimo": [],
+      "frise": ["bichon"],
+      "germanshepherd": [],
+      "greyhound": ["italian"],
+      "groenendael": [],
+      "hound": ["afghan", "basset", "blood", "english", "ibizan", "walker"],
+      "husky": [],
+      "keeshond": [],
+      "kelpie": [],
+      "komondor": [],
+      "kuvasz": [],
+      "labrador": [],
+      "leonberg": [],
+      "lhasa": [],
+      "malamute": [],
+      "malinois": [],
+      "maltese": [],
+      "mastiff": ["bull", "tibetan"],
+      "mexicanhairless": [],
+      "mix": [],
+      "mountain": ["bernese","swiss"],
+      "newfoundland": [],
+      "otterhound": [],
+      "papillon": [],
+      "pekinese": [],
+      "pembroke": [],
+      "pinscher": ["miniature"],
+      "pointer": ["german", "germanlonghair"],
+      "pomeranian": [],
+      "poodle": [ "miniature", "standard", "toy"],
+      "pug": [],
+      "puggle": [],
+      "pyrenees": [],
+      "redbone": [],
+      "retriever": [ "chesapeake", "curly", "flatcoated", "golden"],
+      "ridgeback": ["rhodesian"],
+      "rottweiler": [],
+      "saluki": [],
+      "samoyed": [],
+      "schipperke": [],
+      "schnauzer": [ "giant", "miniature"],
+      "setter": ["english", "gordon", "irish"],
+      "sheepdog": ["english", "shetland"],
+      "shiba": [],
+      "shihtzu": [],
+      "spaniel": [ "blenheim", "brittany", "cocker", "irish", "japanese", "sussex", "welsh"],
+      "springer": ["english"],
+      "stbernard": [],
+      "terrier": [ "american", "australian", "bedlington", "border", "dandie", "fox", "irish", "kerryblue", "lakeland", "norfolk", "norwich", "patterdale", "russell", "scottish", "sealyham", "silky", "tibetan", "toy", "westhighland", "wheaten", "yorkshire"],
+      "vizsla": [],
+      "weimaraner": [],
+      "whippet": [],
+      "wolfhound": ["irish"]
+    }
+  }
 
-      ],
-      "african": [
+  const upperCase = (str) =>{ // function to capitalize the first letter
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
-      ],
-      "airedale": [
-
-      ],
-      "akita": [
-
-      ],
-      "appenzeller": [
-
-      ],
-      "basenji": [
-
-      ],
-      "beagle": [
-
-      ],
-      "bluetick": [
-
-      ],
-      "borzoi": [
-
-      ],
-      "bouvier": [
-
-      ],
-      "boxer": [
-
-      ],
-      "brabancon": [
-
-      ],
-      "briard": [
-
-      ],
-      "bulldog": [
-        "boston",
-        "french"
-      ],
-      "bullterrier": [
-        "staffordshire"
-      ],
-      "cairn": [
-
-      ],
-      "cattledog": [
-        "australian"
-      ],
-      "chihuahua": [
-
-      ],
-      "chow": [
-
-      ],
-      "clumber": [
-
-      ],
-      "cockapoo": [
-
-      ],
-      "collie": [
-        "border"
-      ],
-      "coonhound": [
-
-      ],
-      "corgi": [
-        "cardigan"
-      ],
-      "cotondetulear": [
-
-      ],
-      "dachshund": [
-
-      ],
-      "dalmatian": [
-
-      ],
-      "dane": [
-        "great"
-      ],
-      "deerhound": [
-        "scottish"
-      ],
-      "dhole": [
-
-      ],
-      "dingo": [
-
-      ],
-      "doberman": [
-
-      ],
-      "elkhound": [
-        "norwegian"
-      ],
-      "entlebucher": [
-
-      ],
-      "eskimo": [
-
-      ],
-      "frise": [
-        "bichon"
-      ],
-      "germanshepherd": [
-
-      ],
-      "greyhound": [
-        "italian"
-      ],
-      "groenendael": [
-
-      ],
-      "hound": [
-        "afghan",
-        "basset",
-        "blood",
-        "english",
-        "ibizan",
-        "walker"
-      ],
-      "husky": [
-
-      ],
-      "keeshond": [
-
-      ],
-      "kelpie": [
-
-      ],
-      "komondor": [
-
-      ],
-      "kuvasz": [
-
-      ],
-      "labrador": [
-
-      ],
-      "leonberg": [
-
-      ],
-      "lhasa": [
-
-      ],
-      "malamute": [
-
-      ],
-      "malinois": [
-
-      ],
-      "maltese": [
-
-      ],
-      "mastiff": [
-        "bull",
-        "tibetan"
-      ],
-      "mexicanhairless": [
-
-      ],
-      "mix": [
-
-      ],
-      "mountain": [
-        "bernese",
-        "swiss"
-      ],
-      "newfoundland": [
-
-      ],
-      "otterhound": [
-
-      ],
-      "papillon": [
-
-      ],
-      "pekinese": [
-
-      ],
-      "pembroke": [
-
-      ],
-      "pinscher": [
-        "miniature"
-      ],
-      "pointer": [
-        "german",
-        "germanlonghair"
-      ],
-      "pomeranian": [
-
-      ],
-      "poodle": [
-        "miniature",
-        "standard",
-        "toy"
-      ],
-      "pug": [
-
-      ],
-      "puggle": [
-
-      ],
-      "pyrenees": [
-
-      ],
-      "redbone": [
-
-      ],
-      "retriever": [
-        "chesapeake",
-        "curly",
-        "flatcoated",
-        "golden"
-      ],
-      "ridgeback": [
-        "rhodesian"
-      ],
-      "rottweiler": [
-
-      ],
-      "saluki": [
-
-      ],
-      "samoyed": [
-
-      ],
-      "schipperke": [
-
-      ],
-      "schnauzer": [
-        "giant",
-        "miniature"
-      ],
-      "setter": [
-        "english",
-        "gordon",
-        "irish"
-      ],
-      "sheepdog": [
-        "english",
-        "shetland"
-      ],
-      "shiba": [
-
-      ],
-      "shihtzu": [
-
-      ],
-      "spaniel": [
-        "blenheim",
-        "brittany",
-        "cocker",
-        "irish",
-        "japanese",
-        "sussex",
-        "welsh"
-      ],
-      "springer": [
-        "english"
-      ],
-      "stbernard": [
-
-      ],
-      "terrier": [
-        "american",
-        "australian",
-        "bedlington",
-        "border",
-        "dandie",
-        "fox",
-        "irish",
-        "kerryblue",
-        "lakeland",
-        "norfolk",
-        "norwich",
-        "patterdale",
-        "russell",
-        "scottish",
-        "sealyham",
-        "silky",
-        "tibetan",
-        "toy",
-        "westhighland",
-        "wheaten",
-        "yorkshire"
-      ],
-      "vizsla": [
-
-      ],
-      "weimaraner": [
-
-      ],
-      "whippet": [
-
-      ],
-      "wolfhound": [
-        "irish"
-      ]
+  const randoness = (arr) => { // function to made random breeds with the Object.entries that is the total of breeds (87)
+    let random = Object.entries(APIResponse.message)[Math.floor(Math.random()*87)] // (87)... .is the key.length Object.values(Object.keys(key))
+    if(random[1].length){
+      let randomSub = Math.floor(Math.random() * random[1].length)
+      return `${random[1][randomSub]} ${random[0]}`
+    } else {
+      return `${random[0]}`
     }
   };
-  // let  list = {
-  //   key: keys,
-  //   value: values,
-  // };
 
-
-  let value = Object.values(APIResponse);
-  let container = document.createElement("div");
-  let list = container.classList.add("list"); //creating a class for the div container
-  let listDom = document.querySelector(".list"); //class DOM
-  let search = document.querySelector(".search"); //button
-
-    search.addEventListener("click", (event) => {
-      event.preventDefault();
-      search.style.background = "lightgreen";
-      event.target.parentNode.insertBefore(container, search);
-    // event.target.body.appendChild(container);
-    });
-    const upperCase = (word1) =>{
-      word1.charAt(0).toUpperCase() + key[i].slice(1);
-    };
-    const randoness = (arr) => {
-      Math.floor(Math.random() * arr.length);
-    };
-             // container.innerText = `${breedList.push(upperCase(breedOrigen) + " " + subArr)}`;
-     // subArr = APIResponse.message[key[i]];
     let breedList = [];
-    objkey =  APIResponse.message
+    let breedKeys = APIResponse.message; // All the breeds
+  const displayBreeds = () => {
+    for(breedVal in breedKeys){ //for loops for Objs.
+      if (breedKeys[breedVal].length > 0) {
+        breedKeys[breedVal].forEach(breedSub => {
+          breedList.push(upperCase(breedSub) + " " + upperCase(breedVal));
+        });
+      } else {
+        breedList.push(`${upperCase(breedVal)}`);
+      };
+    }
+    return breedList;
+  };
 
-    const displayBreeds = (subArr) => {
-      let key = Object.keys(APIResponse.message);
-      for (let i = 0; i < subArr.length; i++) {
-        subArr = subArr[key[i]]
-        if (subArr.length === undefined) {
-          subArr.forEach(breedOrigen => {
-            subArr[breedOrigen]
-          breedList.push(upperCase(breedOrigen[randoness(breedOrigen)]) + " " + subArr[randoness(subArr)]);
-          });
-        }else {
-          breedList.push(upperCase(subArr));
-            // container.innerHTML = `${key}` //All the breeds
-        }
-      }
-    };
-    search.addEventListener("click", (event) => {
-      // let name = `${firstNames[randomNum(firstNames)]}
-      // displayBreeds()
-      container.innerHTML = displayBreeds();
-      search.innerText = "Another One!";
+    let container = document.createElement("div");
+    // container.style.margin = "50px 10px 20px 30px";
+    container.classList.add("toShow"); //creating a class for the div container
+    let toShow = document.querySelector(".toShow"); //class DOM
+    let search = document.querySelector(".search"); //button
 
-    });
-      // let divided = key.split("", key.length)
-      //   if(key.length !== undefined){ // listBread.length === 0
-      //     let subBreeds = breadList.push(Object.entries(key)); // (87)... .is the key.length Object.values(Object.keys(key))
-      //     container.innerHTML = `${subBreeds}`
-      // }
+  search.addEventListener("click", (event) => {
+    event.preventDefault();
+    search.style.background = "#f9ae81";
+    search.innerText = "Another One!";
+    container.innerText = randoness(displayBreeds());
+    let outPut = document.body.appendChild(container)
+  });
+})
+// It didn't work ... because: breedList is undefined....
+    // const displayBreeds = () => {
+    //   Object.keys(breedKeys).forEach(dogVal => {   // I need to see each breed(keys of this object) including sub-breeds(values)
+    //     if (breedKeys[dogVal].length) {
+    //       breedKeys[dogVal].forEach(breedSub => {
+    //       breedList.push(upperCase(dogVal[randoness(dogVal)]) + " " + breedSub[randoness(breedSub)]);
+    //       });
+    //     }else{
+    //       breedList.push(upperCase(breedSub)); // breedList is undefined....
+    //     }
+    //   });
+    //   return breeList; // breedList is undefined....
+    // };
